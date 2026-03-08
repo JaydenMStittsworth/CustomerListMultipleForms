@@ -72,6 +72,7 @@
             Controls.Add(btnNewCustomer);
             Name = "Form1";
             Text = "Customers";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).EndInit();
             ResumeLayout(false);
         }
