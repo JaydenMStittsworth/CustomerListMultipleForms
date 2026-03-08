@@ -23,6 +23,17 @@ namespace CustomerListMultipleForms
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
             // fire code to edit the selected customer form
+            var customerForm = new CustomerForm();
+            // add customer data (this is temporary)
+            customerForm.LoadCustomer(new Customer { 
+                FirstName = "Jayden", 
+                LastName = "Stittsworth", 
+                Email = "idk", 
+                Phone = "idk2" 
+            });
+
+            customerForm.ShowDialog();
+            
         }
     }
 }

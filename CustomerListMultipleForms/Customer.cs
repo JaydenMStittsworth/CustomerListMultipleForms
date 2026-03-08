@@ -25,6 +25,14 @@ namespace CustomerListMultipleForms
             Phone = phone;
         }
 
+        public Customer()
+        {
+            FirstName = "";
+            LastName = "";
+            Email = "";
+            Phone = "";
+        }
+
         public override string ToString()
         {
             return $"{FirstName} {LastName} - {Email} - {Phone}";
