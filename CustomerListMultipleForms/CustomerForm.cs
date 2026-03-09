@@ -41,7 +41,6 @@ namespace CustomerListMultipleForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Customer saved: {_customer.FirstName} {_customer.LastName}");
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
