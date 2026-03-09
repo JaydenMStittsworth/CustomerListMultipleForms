@@ -41,6 +41,46 @@ namespace CustomerListMultipleForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // validation logic here
+
+            // does the form have a first name
+            if (Validators.ContainsValue(txtFirstName.Text) == false)
+            {
+                MessageBox.Show("Please enter a first name");
+                return;
+            }
+
+            // does the form have a last name
+            if (Validators.ContainsValue(txtLastName.Text) == false)
+            {
+                MessageBox.Show("Please enter a last name");
+                return;
+            }
+
+            // does the form have at least an email or a phone number?
+            if (Validators.ContainsValue(txtEmail.Text) == false
+                && Validators.ContainsValue(txtPhone.Text) == false)
+            {
+                MessageBox.Show("Please enter an email or phone number");
+                return;
+            }
+
+            // check the pattern of email using regex
+            if (Validators.ContainsValue(txtEmail.Text) &&
+                Validators.IsValidEmail(txtEmail.Text) == false)
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            // check the pattern of email using regex
+            if (Validators.ContainsValue(txtPhone.Text) &&
+                Validators.IsValidPhoneNumber(txtPhone.Text) == false)
+            {
+                MessageBox.Show("Please enter a valid phone number.");
+                return;
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

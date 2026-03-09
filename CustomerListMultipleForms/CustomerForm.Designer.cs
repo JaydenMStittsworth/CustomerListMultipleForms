@@ -126,8 +126,10 @@
             // 
             // CustomerForm
             // 
+            AcceptButton = btnSave;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancel;
             ClientSize = new Size(303, 157);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
