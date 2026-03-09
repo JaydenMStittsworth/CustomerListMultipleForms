@@ -46,6 +46,7 @@
             // 
             // btnEditCustomer
             // 
+            btnEditCustomer.Enabled = false;
             btnEditCustomer.Location = new Point(452, 12);
             btnEditCustomer.Name = "btnEditCustomer";
             btnEditCustomer.Size = new Size(94, 23);
@@ -61,6 +62,7 @@
             dgvCustomers.Name = "dgvCustomers";
             dgvCustomers.Size = new Size(634, 384);
             dgvCustomers.TabIndex = 2;
+            dgvCustomers.SelectionChanged += dgvCustomers_SelectionChanged;
             // 
             // Form1
             // 

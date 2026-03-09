@@ -16,31 +16,6 @@ namespace CustomerListMultipleForms
                 AllowRemove = true,
                 AllowEdit = false
             };
-
-            //Customers.AddRange(new List<Customer>
-            //{
-            //    new Customer
-            //    {
-            //        FirstName = "John",
-            //        LastName = "Smith",
-            //        Email = "idk",
-            //        Phone = "idk3"
-            //    },
-            //    new Customer
-            //    {
-            //        FirstName = "Johna",
-            //        LastName = "Smitha",
-            //        Email = "idkk",
-            //        Phone = "idkk3"
-            //    },
-            //    new Customer
-            //    {
-            //        FirstName = "Johne",
-            //        LastName = "Smithe",
-            //        Email = "iadk",
-            //        Phone = "iadk3"
-            //    }
-            //});
         }
 
         private void btnNewCustomer_Click(object sender, EventArgs e)
@@ -76,6 +51,12 @@ namespace CustomerListMultipleForms
             if (customerForm.ShowDialog() == DialogResult.OK)
             {
                 // update the customer in the list of customers
+                var updatedCustomer = customerForm.GetCustomer();
+                selectedCustomer.FirstName = updatedCustomer.FirstName;
+                selectedCustomer.LastName = updatedCustomer.LastName;
+                selectedCustomer.Email = updatedCustomer.Email;
+                selectedCustomer.Phone = updatedCustomer.Phone;
+                dgvCustomers.Refresh();
             }
 
         }
@@ -84,6 +65,24 @@ namespace CustomerListMultipleForms
         {
             // binding the list of customers to the datagridview
             dgvCustomers.DataSource = Customers;
+        }
+
+        private void dgvCustomers_SelectionChanged(object sender, EventArgs e)
+        {
+            // check if the selected item is valid
+                // if valid, enable the edit button
+                // if not, disable the edit button
+            var isValidSelection = dgvCustomers.CurrentRow?.DataBoundItem is Customer;
+
+            if (isValidSelection)
+            {
+                btnEditCustomer.Enabled = true;
+            }
+            else
+            {
+                btnEditCustomer.Enabled = false;
+            }
+                
         }
     }
 }
